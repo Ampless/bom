@@ -1,2 +1,3 @@
 # bom
-Byte order mark (BOM) detection
+
+byte order mark (BOM) detection
