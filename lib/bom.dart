@@ -13,7 +13,7 @@ enum UnicodeEncoding {
   bocu1,
   gb18030;
 
-  static UnicodeEncoding? fromBom(List<int> string) {
+  static UnicodeEncoding? fromBom(Iterable<int> string) {
     for (final pair in {
       [239, 187, 191]: utf8,
       [254, 255]: utf16be,
@@ -28,7 +28,7 @@ enum UnicodeEncoding {
       [132, 49, 149, 51]: gb18030,
     }.entries) {
       if (Iterable.generate(pair.key.length)
-          .map((i) => pair.key[i] == string[i])
+          .map((i) => pair.key[i] == string.elementAt(i))
           .reduce((a, b) => a && b)) return pair.value;
     }
     return null;
